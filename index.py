@@ -2,21 +2,21 @@ import cv2
 import dlib
 import numpy as np
 
-predictor_path = "shape_predictor_68_face_landmarks.dat"
+whythisdontworkmotherfucker = "shape_predictor_68_face_landmarks.dat"
 
 detector = dlib.get_frontal_face_detector()
-shape_predictor = dlib.shape_predictor(predictor_path)
+shape_predictor = dlib.shape_predictor(whythisdontworkmotherfucker)
 
-replacement_image = cv2.imread("noeun.jpg") #여기에다가 넣고싶은 사람 **동의 받아야함 사진 넣기
+fuck = cv2.imread("noeun.jpg") #여기에다가 넣고싶은 사람 **동의 받아야함 사진 넣기
 
-replacement_faces = detector(replacement_image)
+replacement_faces = detector(fuck)
 if len(replacement_faces) == 0:
     raise Exception("No face detected in the replacement image.")
 
 replacement_face = replacement_faces[0]
 
 (x, y, w, h) = (replacement_face.left(), replacement_face.top(), replacement_face.width(), replacement_face.height())
-replacement_face_region = replacement_image[y:y+h, x:x+w]
+replacement_face_region = fuck[y:y+h, x:x+w]
 
 video_capture = cv2.VideoCapture(0)
 
